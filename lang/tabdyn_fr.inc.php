@@ -15,4 +15,5 @@ return [
     'TABDYN_AB_BAZAR_MAP_AND_TABLE_TABLEWITH_ALL' => 'avec ou sans geolocalisation',
     'TABDYN_AB_BAZAR_MAP_AND_TABLE_TABLEWITH_ONLY_GEOLOC' => 'seulement avec geolocalisation',
     'TABDYN_AB_BAZAR_MAP_AND_TABLE_TABLEWITH_NO_GEOLOC' => 'seulement sans geolocalisation',
+    'TABDYN_URL' => 'Url',
 ];

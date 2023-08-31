@@ -176,7 +176,7 @@ let componentParams = {
                     displayvaluesinsteadofkeys:this.sanitizedParam(params,this.isAdmin,'displayvaluesinsteadofkeys'),
                     baseIdx: data.columns.length
                 }
-                let fieldsToRegister = ['date_creation_fiche','date_maj_fiche','owner','id_typeannonce']
+                let fieldsToRegister = ['date_creation_fiche','date_maj_fiche','owner','id_typeannonce','url']
                 columnfieldsids.forEach((id,idx)=>{
                     if (id.length >0 && id in fields){
                         this.registerField(data,{
@@ -399,6 +399,10 @@ let componentParams = {
                         paramName: '',
                         slotName: 'formidtranslate' 
                     },
+                    'url': {
+                        paramName: '',
+                        slotName: 'urltranslate' 
+                    },
                 }
                 fieldsToRegister.forEach((propertyName)=>{
                     if (propertyName in parameters){
@@ -413,11 +417,15 @@ let componentParams = {
                                 : true
                             ) : false
                         if (canPushColumn){
-                            data.columns.push({
+                            const internalOptions = {
                                 data: propertyName,
                                 title: options.columntitles[propertyName] || TemplateRenderer.getTemplateFromSlot('BazarTable',this,parameters[propertyName].slotName),
                                 footer: ''
-                            })
+                            }
+                            if (propertyName === 'url'){
+                                internalOptions.render = this.renderCell({addLink:true})
+                            }
+                            data.columns.push(internalOptions)
                         }
                     }
                 })

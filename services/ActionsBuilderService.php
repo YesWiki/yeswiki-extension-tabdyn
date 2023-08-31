@@ -58,7 +58,8 @@ trait ActionsBuilderServiceCommon
                 $this->data['action_groups']['bazarliste']['actions']['bazartableau']['properties']['columnfieldsids']['extraFields'] = [
                     'id_typeannonce',
                     'date_creation_fiche',
-                    'date_maj_fiche'
+                    'date_maj_fiche',
+                    'url'
                 ];
             }
 
